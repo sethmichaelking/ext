@@ -3,13 +3,20 @@ const express = require('express'); //Line 1
 const app = express(); //Line 2
 const port = 5002; //Line 3
 const { Sequelize } = require('sequelize');
+const db = require('./database/database')
+const User = require('../server/models/User')
+const Post = require('../server/models/Post')
+const Url = require('../server/models/Url')
+const seed = require('../server/index')
 
-const db = new Sequelize(process.env.REACT_DATABASE_NAME, process.env.REACT_DATABASE_USER, process.env.REACT_DATABASE_PASSWORD, {
-    host: 'localhost',
-    dialect: 'postgres',
-    port: '5433',
-    logging: false
-})
+const init = async () =>{
+  try {
+    seed()
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+}
+init()
 
 //body parser
 app.unsubscribe(bodyParser.urlencoded({
