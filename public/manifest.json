@@ -7,7 +7,12 @@
     "default_popup": "index.html",
     "default_title": "Open"
   },
-  "permissions": ["scripting"],
+  "icons": {
+    "16": "./favicons/favicon-16x16.png",
+    "32": "./favicons/favicon-16x16.png",
+    "128": "./favicons/android-chrome-192x192.png"
+  },
+  "permissions": ["scripting", "activetab", "storage"],
   "host_permissions": [
     "http://*/",
     "https://*/"
