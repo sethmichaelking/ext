@@ -1,7 +1,7 @@
 const db = require('./database/database')
-const User = require('../server/models/User')
-const Post = require('../server/models/Post')
-const Url = require('../server/models/Url')
+const User = require('./models/User')
+const Post = require('./models/Post')
+const Url = require('./models/Url')
 
 const seed = async () =>{
   try {

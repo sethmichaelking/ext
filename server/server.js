@@ -2,12 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express'); //Line 1
 const app = express(); //Line 2
 const port = 5002; //Line 3
-const { Sequelize } = require('sequelize');
-const db = require('./database/database')
-const User = require('../server/models/User')
-const Post = require('../server/models/Post')
-const Url = require('../server/models/Url')
-const seed = require('../server/index')
+const seed = require('./seed')
 
 const init = async () =>{
   try {
@@ -26,4 +21,9 @@ app.unsubscribe(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 app.listen(port, console.log('lisetning on port', port))
+
+var postRoutes = require('./apis/posts');
+var userRoutes = require('./apis/posts');
+var commentRoutes = require('./apis/posts');
+
 module.exports = app
