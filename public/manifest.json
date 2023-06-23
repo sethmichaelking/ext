@@ -3,10 +3,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Treat every page like its a Google doc.",
-  "action": {
-    "default_popup": "index.html",
-    "default_title": "Open"
-  },
+  "action": {},
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -16,14 +13,14 @@
     }
   ],
   "background": {
-    "scripts": ["background"]
-  },
+    "service_worker": "background.js"
+   },
   "icons": {
     "16": "./favicons/favicon-16x16.png",
     "32": "./favicons/favicon-16x16.png",
     "128": "./favicons/android-chrome-192x192.png"
   },
-  "permissions": ["scripting", "tabs", "activetab", "storage"],
+  "permissions": ["scripting", "tabs", "activeTab", "storage"],
   "host_permissions": [
     "http://*/",
     "https://*/"

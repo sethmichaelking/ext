@@ -1,6 +1,6 @@
-console.log('background running')
-chrome.browserAction.onClick.addListener(buttonClicked)
 
-function buttonClicked(){
-    console.log('button has been clicked!')
-}
+console.log('background script listnening');
+
+chrome.tabs.onCreated.addListener(function(tab){
+    console.log('the tab', tab)
+})
